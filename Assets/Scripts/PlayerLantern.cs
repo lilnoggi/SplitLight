@@ -6,6 +6,8 @@ public class PlayerLantern : MonoBehaviour
     private bool hasLantern = false;
     private bool lanternEquipped = false;
 
+    public GameObject equipPromptUI;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -25,7 +27,21 @@ public class PlayerLantern : MonoBehaviour
     public void PickUpLantern()
     {
         hasLantern = true;
+
+        if (equipPromptUI != null)
+        {
+            equipPromptUI.SetActive(true);
+            Invoke(nameof(HideEquipPrompt), 3f);
+        }
         // play a sound or animation
+    }
+
+    private void HideEquipPrompt()
+    {
+        if (equipPromptUI != null)
+        {
+            equipPromptUI.SetActive(false);
+        }
     }
 
     public bool IsLanternEquipped()
