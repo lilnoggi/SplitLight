@@ -25,11 +25,16 @@ public class PlayerLantern : MonoBehaviour
     public void PickUpLantern()
     {
         hasLantern = true;
-        // You can play a sound or animation here if you want!
+        // play a sound or animation
     }
 
     public bool IsLanternEquipped()
     {
         return hasLantern && lanternEquipped;
+    }
+
+    public bool HasLantern()
+    {
+        return hasLantern;
     }
 }

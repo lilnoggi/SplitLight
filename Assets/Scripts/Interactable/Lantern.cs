@@ -1,17 +1,16 @@
 using UnityEngine;
 
-public class Lantern : MonoBehaviour
+public class Lantern : MonoBehaviour, IInteractable
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    public void Interact()
     {
-        if (other.CompareTag("Player"))
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        PlayerLantern playerLantern = player.GetComponent<PlayerLantern>();
+
+        if (playerLantern != null)
         {
-            PlayerLantern playerLantern = other.GetComponent<PlayerLantern>();
-            if (playerLantern != null)
-            {
-                playerLantern.PickUpLantern();
-                Destroy(gameObject); // removes lantern from floor
-            }
+            playerLantern.PickUpLantern();
+            Destroy(gameObject); // Remove lantern from scene
         }
     }
 }

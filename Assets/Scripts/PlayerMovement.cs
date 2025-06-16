@@ -16,12 +16,15 @@ public class PlayerMovement : MonoBehaviour
     private float moveInput;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private PlayerLantern playerLantern;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        playerLantern = GetComponent<PlayerLantern>();
     }
 
     private void Update()
@@ -46,6 +49,17 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Abs(moveInput));
         animator.SetBool("isGrounded", isGrounded);
         animator.SetFloat("VerticalVel", rb.linearVelocity.y);
+
+        if (playerLantern != null)
+        {
+            animator.SetBool("LanternEquipped", playerLantern.IsLanternEquipped());
+            animator.SetBool("HasLantern", playerLantern.HasLantern());
+        }
+        else
+        {
+            animator.SetBool("LanternEquipped", false);
+            animator.SetBool("HasLantern", false);
+        }
     }
 
     private void FixedUpdate()
