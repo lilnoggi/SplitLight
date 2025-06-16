@@ -1,16 +1,20 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerInteraction : MonoBehaviour
 {
     public KeyCode interactKey = KeyCode.E;
     private IInteractable currentInteractable;
 
+    public GameObject interactionPrompt;
+
     private void Update()
     {
         if (Input.GetKeyDown(interactKey) && currentInteractable != null)
         {
             currentInteractable.Interact();
-            //Interact animation
+            HidePrompt();
         }
     }
 
@@ -20,7 +24,7 @@ public class PlayerInteraction : MonoBehaviour
         if (interactable != null)
         {
             currentInteractable = interactable;
-            // show interact UI prompt
+            ShowPrompt();
         }
     }
 
@@ -29,7 +33,23 @@ public class PlayerInteraction : MonoBehaviour
         if (other.GetComponent<IInteractable>() == currentInteractable)
         {
             currentInteractable = null;
-            // hide prompt
+            HidePrompt();
+        }
+    }
+
+    private void ShowPrompt()
+    {
+        if (interactionPrompt != null)
+        {
+            interactionPrompt.SetActive(true);
+        }
+    }
+
+    private void HidePrompt()
+    {
+        if (interactionPrompt != null)
+        {
+            interactionPrompt.SetActive(false);
     }
   }
 }
