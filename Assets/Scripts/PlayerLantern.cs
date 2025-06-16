@@ -2,35 +2,34 @@ using UnityEngine;
 
 public class PlayerLantern : MonoBehaviour
 {
-    public GameObject lanternLight;
+    private Animator animator;
     private bool hasLantern = false;
-    private bool lanternOn = false;
+    private bool lanternEquipped = false;
 
-    void Start()
+    private void Awake()
     {
-        if (lanternLight != null)
-            lanternLight.SetActive(false);
+        animator = GetComponent<Animator>();
     }
 
-    void Update()
+    private void Update()
     {
         if (hasLantern && Input.GetKeyDown(KeyCode.F))
         {
-            ToggleLantern();
+            lanternEquipped = !lanternEquipped;
+            animator.SetBool("LanternEquipped", lanternEquipped);
         }
+
+        animator.SetBool("HasLantern", hasLantern);
     }
 
-    public void ObtainLantern()
+    public void PickUpLantern()
     {
         hasLantern = true;
-        Debug.Log("Player now has the lantern.");
-        // show a UI message "Press F to use the lantern"
+        // You can play a sound or animation here if you want!
     }
 
-    void ToggleLantern()
+    public bool IsLanternEquipped()
     {
-        lanternOn = !lanternOn;
-        if (lanternLight != null)
-            lanternLight.SetActive(lanternOn);
+        return hasLantern && lanternEquipped;
     }
 }
