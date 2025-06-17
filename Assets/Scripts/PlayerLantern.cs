@@ -1,6 +1,7 @@
 using System;
 using UnityEditor.Timeline.Actions;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerLantern : MonoBehaviour
 {
@@ -32,6 +33,8 @@ public class PlayerLantern : MonoBehaviour
     public AudioClip deathLanternSound;
     public AudioClip takeDamageSound;
 
+    public Tilemap hiddenTilemap;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -60,6 +63,8 @@ public class PlayerLantern : MonoBehaviour
                     idleLoopSource.Stop();
             }
         }
+
+        hiddenTilemap.gameObject.SetActive(lanternEquipped);
 
         animator.SetBool("HasLantern", hasLantern);
     }
