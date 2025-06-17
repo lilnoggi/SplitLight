@@ -1,6 +1,4 @@
-# 🕯️ SplitLight ![Unity](https://img.shields.io/badge/Engine-Unity-20232A?logo=unity&logoColor=white)
-![C#](https://img.shields.io/badge/Language-C%23-239120?logo=c-sharp&logoColor=white)
-
+# 🕯️ SplitLight ![Unity](https://img.shields.io/badge/Engine-Unity-20232A?logo=unity&logoColor=white) ![C#](https://img.shields.io/badge/Language-C%23-239120?logo=c-sharp&logoColor=white)
 
 **SplitLight** is a 2D atmospheric puzzle-platformer where you awaken in a forgotten dreamspace with no memory — only a fragile lantern to guide your way. Every step forward uncovers haunting memories and twisted reflections of the self. But beware: the more you reveal, the more the darkness sees you.
 
