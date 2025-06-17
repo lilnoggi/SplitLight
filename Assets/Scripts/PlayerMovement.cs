@@ -29,6 +29,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+            if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive)
+    {
+        rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+        animator.SetFloat("Speed", 0);
+        return; // Freeze player input
+    }
+
         // Movement
         moveInput = Input.GetAxisRaw("Horizontal");
 

@@ -1,3 +1,4 @@
+using System;
 using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
@@ -8,6 +9,11 @@ public class PlayerLantern : MonoBehaviour
     private bool lanternEquipped = false;
 
     public GameObject equipPromptUI;
+
+    public float maxHealth = 100f;
+    private float currentHealth;
+
+    public LanternHealthUI lanternUI;
 
     public AudioClip pickupSound;
     public AudioClip equipSound;
@@ -25,6 +31,11 @@ public class PlayerLantern : MonoBehaviour
 
     private void Update()
     {
+            if (Input.GetKeyDown(KeyCode.H)) // press H to test
+    {
+        TakeDamage(10f);
+    }
+    
         if (hasLantern && Input.GetKeyDown(KeyCode.F))
         {
             lanternEquipped = !lanternEquipped;
@@ -47,7 +58,14 @@ public class PlayerLantern : MonoBehaviour
     public void PickUpLantern()
     {
         hasLantern = true;
+        currentHealth = maxHealth;
+
         PlaySound(pickupSound);
+        if (lanternUI != null)
+        {
+            lanternUI.Show();
+            lanternUI.UpdateHealth(currentHealth, maxHealth);
+        }
 
         if (equipPromptUI != null)
         {
@@ -79,6 +97,23 @@ public class PlayerLantern : MonoBehaviour
         if (clip != null && audioSource != null)
         {
             audioSource.PlayOneShot(clip);
+        }
+    }
+
+    public void TakeDamage(float amount)
+    {
+        if (!hasLantern) return;
+
+        currentHealth -= amount;
+        currentHealth = Mathf.Max(currentHealth, 0);
+
+        if (lanternUI != null)
+        lanternUI.UpdateHealth(currentHealth, maxHealth);
+
+        if (currentHealth <= 0)
+        {
+            // Handle lantern burnout or player death here
+            Debug.Log("Lantern depleted! You're vulnerable!");
         }
     }
 }
