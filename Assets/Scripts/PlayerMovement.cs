@@ -18,6 +18,12 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private PlayerLantern playerLantern;
 
+    private bool wasGroundedLastFrame = false;
+    public AudioClip fallLandingSound;
+    public AudioClip fallLandingLanternSound;
+    private AudioSource audioSource;
+    private PlayerLantern lantern;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,16 +31,19 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         playerLantern = GetComponent<PlayerLantern>();
+
+        audioSource = GetComponentInChildren<AudioSource>();
+        lantern = GetComponent<PlayerLantern>();
     }
 
     private void Update()
     {
-            if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive)
-    {
-        rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
-        animator.SetFloat("Speed", 0);
-        return; // Freeze player input
-    }
+        if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive)
+        {
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            animator.SetFloat("Speed", 0);
+            return; // Freeze player input
+        }
 
         // Movement
         moveInput = Input.GetAxisRaw("Horizontal");
@@ -67,6 +76,17 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("LanternEquipped", false);
             animator.SetBool("HasLantern", false);
         }
+
+
+        if (!wasGroundedLastFrame && isGrounded)
+        {
+            if (lantern != null && lantern.IsLanternEquipped())
+                audioSource.PlayOneShot(fallLandingLanternSound);
+            else
+                audioSource.PlayOneShot(fallLandingSound);
+        }
+
+        wasGroundedLastFrame = isGrounded;
     }
 
     private void FixedUpdate()

@@ -3574,6 +3574,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
+  fallLandingSound: {fileID: 8300000, guid: 7be8bad4e05b7f440bb97e454b673d15, type: 3}
+  fallLandingLanternSound: {fileID: 8300000, guid: 2c8f24946adfdfb429cfbbc6f8210496, type: 3}
 --- !u!61 &1821277584
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3743,6 +3745,9 @@ MonoBehaviour:
   equipSound: {fileID: 8300000, guid: 79aac94814143d74cbd324c98cd76872, type: 3}
   unequipSound: {fileID: 8300000, guid: b7b82b1d2c35543418d02b9ac3154e47, type: 3}
   idleLoopSource: {fileID: 615170041}
+  deathSound: {fileID: 8300000, guid: 76b143f228ceb274e9857716b94afe79, type: 3}
+  deathLanternSound: {fileID: 8300000, guid: 0067daddbe9c3fe4988f3d54ce205d0b, type: 3}
+  takeDamageSound: {fileID: 8300000, guid: 4abc7b7cd82b42d4494ecd31319134d8, type: 3}
 --- !u!95 &1821277589
 Animator:
   serializedVersion: 7

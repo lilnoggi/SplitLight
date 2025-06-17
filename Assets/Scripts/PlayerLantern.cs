@@ -27,6 +27,11 @@ public class PlayerLantern : MonoBehaviour
 
     public AudioSource idleLoopSource;
 
+    [Header("Sound Effects")]
+    public AudioClip deathSound;
+    public AudioClip deathLanternSound;
+    public AudioClip takeDamageSound;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -113,6 +118,9 @@ public class PlayerLantern : MonoBehaviour
 
         if (lanternUI != null)
             lanternUI.UpdateHealth(currentHealth, maxHealth);
+        
+        if (takeDamageSound != null)
+            PlaySound(takeDamageSound);
 
         if (currentHealth <= 0)
         {
@@ -131,10 +139,15 @@ public class PlayerLantern : MonoBehaviour
             idleLoopSource.Stop();
 
         if (lanternEquipped)
+        {
             animator.SetTrigger("DieWithLantern");
+            PlaySound(deathLanternSound);
+        }
         else
+        {
             animator.SetTrigger("DieWithoutLantern");
-
+            PlaySound(deathSound);
+        }
         // Disable input or other movement here (optional, depends on setup)
         GetComponent<PlayerMovement>().enabled = false;
 
