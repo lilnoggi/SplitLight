@@ -1,6 +1,7 @@
 using System;
 using UnityEditor.Timeline.Actions;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerLantern : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class PlayerLantern : MonoBehaviour
 
     public float maxHealth = 100f;
     private float currentHealth;
+    private bool isDead = false;
+
+    public Transform respawnPoint;
+    public float respawnDelay = 2f;
 
     public LanternHealthUI lanternUI;
 
@@ -23,6 +28,13 @@ public class PlayerLantern : MonoBehaviour
 
     public AudioSource idleLoopSource;
 
+    [Header("Sound Effects")]
+    public AudioClip deathSound;
+    public AudioClip deathLanternSound;
+    public AudioClip takeDamageSound;
+
+    public Tilemap hiddenTilemap;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -31,11 +43,11 @@ public class PlayerLantern : MonoBehaviour
 
     private void Update()
     {
-            if (Input.GetKeyDown(KeyCode.H)) // press H to test
-    {
-        TakeDamage(10f);
-    }
-    
+        if (Input.GetKeyDown(KeyCode.H)) // press H to test
+        {
+            TakeDamage(10f);
+        }
+
         if (hasLantern && Input.GetKeyDown(KeyCode.F))
         {
             lanternEquipped = !lanternEquipped;
@@ -52,11 +64,14 @@ public class PlayerLantern : MonoBehaviour
             }
         }
 
+        hiddenTilemap.gameObject.SetActive(lanternEquipped);
+
         animator.SetBool("HasLantern", hasLantern);
     }
 
     public void PickUpLantern()
     {
+        animator.SetTrigger("Interact");
         hasLantern = true;
         currentHealth = maxHealth;
 
@@ -102,18 +117,73 @@ public class PlayerLantern : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        if (!hasLantern) return;
+        if (!hasLantern || isDead) return;
 
         currentHealth -= amount;
         currentHealth = Mathf.Max(currentHealth, 0);
 
         if (lanternUI != null)
-        lanternUI.UpdateHealth(currentHealth, maxHealth);
+            lanternUI.UpdateHealth(currentHealth, maxHealth);
+        
+        if (takeDamageSound != null)
+            PlaySound(takeDamageSound);
 
         if (currentHealth <= 0)
         {
-            // Handle lantern burnout or player death here
-            Debug.Log("Lantern depleted! You're vulnerable!");
+            Die();
         }
     }
+
+    private void Die()
+    {
+        if (isDead) return;
+        isDead = true;
+
+        Debug.Log("You Died");
+
+        if (idleLoopSource != null && idleLoopSource.isPlaying)
+            idleLoopSource.Stop();
+
+        if (lanternEquipped)
+        {
+            animator.SetTrigger("DieWithLantern");
+            PlaySound(deathLanternSound);
+        }
+        else
+        {
+            animator.SetTrigger("DieWithoutLantern");
+            PlaySound(deathSound);
+        }
+        // Disable input or other movement here (optional, depends on setup)
+        GetComponent<PlayerMovement>().enabled = false;
+
+        // respawn coroutine
+        StartCoroutine(RespawnCoroutine());
+    }
+
+    private System.Collections.IEnumerator RespawnCoroutine()
+{
+    yield return new WaitForSeconds(respawnDelay);
+
+    // Reset player position
+    if (respawnPoint != null)
+        transform.position = respawnPoint.position;
+
+    // Reset health
+    currentHealth = maxHealth;
+    if (lanternUI != null)
+        lanternUI.UpdateHealth(currentHealth, maxHealth);
+
+    // Re-enable movement
+    GetComponent<PlayerMovement>().enabled = true;
+
+    // Reset death state
+    isDead = false;
+
+    // Optionally play idle animation
+    animator.SetTrigger("Respawn"); // make a "Respawn" trigger in your animator that transitions to Idle
+
+    Debug.Log("Player respawned");
+}
+
 }

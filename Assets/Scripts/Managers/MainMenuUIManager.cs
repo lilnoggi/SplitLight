@@ -12,7 +12,7 @@ public class MainMenuUIManager : MonoBehaviour
     public void OnPlayButton()
     {
         // Load game scene here (replace with actual scene name)
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("TutorialScene");
     }
 
     public void OnOptionsButton()

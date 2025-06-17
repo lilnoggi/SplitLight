@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 85721644}
   - component: {fileID: 85721643}
   - component: {fileID: 85721642}
+  - component: {fileID: 85721645}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -287,6 +288,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85721640}
   m_CullTransparentMesh: 1
+--- !u!114 &85721645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85721640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b8c569f7d37ee49a3288089a10b1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundTypeOnClick: 1
+  hoverClip: {fileID: 8300000, guid: b93922fc5407f4e4dba04b562d8097fe, type: 3}
+  clickClip: {fileID: 8300000, guid: 0067daddbe9c3fe4988f3d54ce205d0b, type: 3}
+  gameSceneName: 
+  audioSource: {fileID: 1491418879}
 --- !u!1 &86274357
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,6 +392,7 @@ GameObject:
   - component: {fileID: 103913044}
   - component: {fileID: 103913043}
   - component: {fileID: 103913042}
+  - component: {fileID: 103913045}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -494,6 +513,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103913040}
   m_CullTransparentMesh: 1
+--- !u!114 &103913045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103913040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b8c569f7d37ee49a3288089a10b1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundTypeOnClick: 1
+  hoverClip: {fileID: 8300000, guid: b93922fc5407f4e4dba04b562d8097fe, type: 3}
+  clickClip: {fileID: 8300000, guid: 9d41ed28bca155d438517cebeda4bf08, type: 3}
+  gameSceneName: 
+  audioSource: {fileID: 1491418879}
 --- !u!1 &239867947
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,6 +542,7 @@ GameObject:
   - component: {fileID: 239867951}
   - component: {fileID: 239867950}
   - component: {fileID: 239867949}
+  - component: {fileID: 239867952}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -626,6 +663,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 239867947}
   m_CullTransparentMesh: 1
+--- !u!114 &239867952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239867947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b8c569f7d37ee49a3288089a10b1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundTypeOnClick: 1
+  hoverClip: {fileID: 8300000, guid: b93922fc5407f4e4dba04b562d8097fe, type: 3}
+  clickClip: {fileID: 8300000, guid: 9d41ed28bca155d438517cebeda4bf08, type: 3}
+  gameSceneName: 
+  audioSource: {fileID: 1491418879}
 --- !u!1 &271520775
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,6 +842,7 @@ GameObject:
   - component: {fileID: 330891162}
   - component: {fileID: 330891161}
   - component: {fileID: 330891160}
+  - component: {fileID: 330891163}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -908,6 +963,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330891158}
   m_CullTransparentMesh: 1
+--- !u!114 &330891163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330891158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b8c569f7d37ee49a3288089a10b1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundTypeOnClick: 2
+  hoverClip: {fileID: 8300000, guid: b93922fc5407f4e4dba04b562d8097fe, type: 3}
+  clickClip: {fileID: 8300000, guid: a06c508939d6fef4ea41ce46588b3779, type: 3}
+  gameSceneName: TutorialScene
+  audioSource: {fileID: 1491418879}
 --- !u!1 &366288323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,12 +1617,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744319847}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -437.63577, y: -223.0903, z: -1.4458358}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1410520801}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &844310835
 GameObject:
@@ -1675,6 +1747,7 @@ GameObject:
   - component: {fileID: 1001896020}
   - component: {fileID: 1001896019}
   - component: {fileID: 1001896018}
+  - component: {fileID: 1001896021}
   m_Layer: 5
   m_Name: LevelButton
   m_TagString: Untagged
@@ -1795,6 +1868,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001896016}
   m_CullTransparentMesh: 1
+--- !u!114 &1001896021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001896016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b8c569f7d37ee49a3288089a10b1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundTypeOnClick: 1
+  hoverClip: {fileID: 8300000, guid: b93922fc5407f4e4dba04b562d8097fe, type: 3}
+  clickClip: {fileID: 8300000, guid: 9d41ed28bca155d438517cebeda4bf08, type: 3}
+  gameSceneName: 
+  audioSource: {fileID: 1491418879}
 --- !u!1 &1031589937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,6 +2051,7 @@ GameObject:
   - component: {fileID: 1113415515}
   - component: {fileID: 1113415514}
   - component: {fileID: 1113415513}
+  - component: {fileID: 1113415516}
   m_Layer: 5
   m_Name: CreditsButton
   m_TagString: Untagged
@@ -2081,6 +2172,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113415511}
   m_CullTransparentMesh: 1
+--- !u!114 &1113415516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113415511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b8c569f7d37ee49a3288089a10b1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundTypeOnClick: 1
+  hoverClip: {fileID: 8300000, guid: b93922fc5407f4e4dba04b562d8097fe, type: 3}
+  clickClip: {fileID: 8300000, guid: 9d41ed28bca155d438517cebeda4bf08, type: 3}
+  gameSceneName: 
+  audioSource: {fileID: 1491418879}
 --- !u!1 &1216615042
 GameObject:
   m_ObjectHideFlags: 0
@@ -2308,6 +2416,7 @@ GameObject:
   - component: {fileID: 1269159577}
   - component: {fileID: 1269159576}
   - component: {fileID: 1269159575}
+  - component: {fileID: 1269159578}
   m_Layer: 5
   m_Name: LevelButton
   m_TagString: Untagged
@@ -2416,6 +2525,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1269159573}
   m_CullTransparentMesh: 1
+--- !u!114 &1269159578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269159573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b8c569f7d37ee49a3288089a10b1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundTypeOnClick: 1
+  hoverClip: {fileID: 8300000, guid: b93922fc5407f4e4dba04b562d8097fe, type: 3}
+  clickClip: {fileID: 0}
+  gameSceneName: 
+  audioSource: {fileID: 1491418879}
+--- !u!1 &1410520800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1410520801}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1410520801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410520800}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 437.63577, y: 223.0903, z: 1.4458358}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 744319849}
+  - {fileID: 1491418880}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1472095716
 GameObject:
   m_ObjectHideFlags: 0
@@ -2464,6 +2623,135 @@ MonoBehaviour:
   optionsPanel: {fileID: 1061580940}
   levelSelectPanel: {fileID: 2022419846}
   creditsPanel: {fileID: 1498580377}
+--- !u!1 &1491418878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1491418880}
+  - component: {fileID: 1491418879}
+  m_Layer: 0
+  m_Name: UI_SFX_Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1491418879
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491418878}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1491418880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491418878}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1410520801}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1498580377
 GameObject:
   m_ObjectHideFlags: 0
@@ -2553,6 +2841,7 @@ GameObject:
   - component: {fileID: 1506370975}
   - component: {fileID: 1506370974}
   - component: {fileID: 1506370973}
+  - component: {fileID: 1506370976}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -2673,6 +2962,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506370971}
   m_CullTransparentMesh: 1
+--- !u!114 &1506370976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506370971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b8c569f7d37ee49a3288089a10b1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundTypeOnClick: 1
+  hoverClip: {fileID: 8300000, guid: b93922fc5407f4e4dba04b562d8097fe, type: 3}
+  clickClip: {fileID: 8300000, guid: 9d41ed28bca155d438517cebeda4bf08, type: 3}
+  gameSceneName: 
+  audioSource: {fileID: 1491418879}
 --- !u!1 &1811179631
 GameObject:
   m_ObjectHideFlags: 0
@@ -2760,6 +3066,7 @@ GameObject:
   - component: {fileID: 1860675070}
   - component: {fileID: 1860675069}
   - component: {fileID: 1860675068}
+  - component: {fileID: 1860675071}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -2880,6 +3187,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860675066}
   m_CullTransparentMesh: 1
+--- !u!114 &1860675071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860675066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b8c569f7d37ee49a3288089a10b1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundTypeOnClick: 1
+  hoverClip: {fileID: 8300000, guid: b93922fc5407f4e4dba04b562d8097fe, type: 3}
+  clickClip: {fileID: 8300000, guid: 9d41ed28bca155d438517cebeda4bf08, type: 3}
+  gameSceneName: 
+  audioSource: {fileID: 1491418879}
 --- !u!1 &1984995979
 GameObject:
   m_ObjectHideFlags: 0
@@ -3282,4 +3606,4 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 366288327}
   - {fileID: 1245262564}
-  - {fileID: 744319849}
+  - {fileID: 1410520801}
