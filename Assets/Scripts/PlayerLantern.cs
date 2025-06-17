@@ -66,6 +66,7 @@ public class PlayerLantern : MonoBehaviour
 
     public void PickUpLantern()
     {
+        animator.SetTrigger("Interact");
         hasLantern = true;
         currentHealth = maxHealth;
 
