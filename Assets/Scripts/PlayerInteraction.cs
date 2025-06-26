@@ -6,16 +6,34 @@ public class PlayerInteraction : MonoBehaviour
 {
     public KeyCode interactKey = KeyCode.E;
     private IInteractable currentInteractable;
+    private PlayerMovement playerMovement;
 
     public GameObject interactionPrompt;
+
+    private void Awake()
+    {
+        playerMovement = GetComponent<PlayerMovement>();
+    }
 
     private void Update()
     {
         if (Input.GetKeyDown(interactKey) && currentInteractable != null)
         {
+            if (playerMovement != null)
+                playerMovement.enabled = false;
+
             currentInteractable.Interact();
             HidePrompt();
+
+            // Re-enable movement after a short delay (e.g. for animations or short interactions)
+            Invoke(nameof(ReenableMovement), 1f); // adjust this duration as needed!
         }
+    }
+
+    private void ReenableMovement()
+    {
+        if (playerMovement != null)
+            playerMovement.enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -50,6 +68,6 @@ public class PlayerInteraction : MonoBehaviour
         if (interactionPrompt != null)
         {
             interactionPrompt.SetActive(false);
+        }
     }
-  }
 }
