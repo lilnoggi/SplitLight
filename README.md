@@ -45,6 +45,7 @@ Each world has a unique theme:
 | Item | Info |
 |------|------|
 | **Engine** | Unity |
+|**Editor Version** | 6000.0.46f1 |
 | **Language** | C# |
 | **Platform** | PC (Windows), potential Switch |
 | **Assets** | Custom pixel art / stylized lighting |
