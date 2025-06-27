@@ -64,6 +64,12 @@ public class PillarSmall : MonoBehaviour
         }
 
         attackTimer -= Time.deltaTime;
+
+        if (currentState == State.Awake || currentState == State.Awakening)
+        {
+            FlipTowardsPlayer();
+        }
+
     }
 
     // Called via animation event or transition
@@ -103,7 +109,7 @@ public class PillarSmall : MonoBehaviour
             PlayerLantern playerLantern = hit.GetComponent<PlayerLantern>();
             if (playerLantern != null)
             {
-                playerLantern.TakeDamage(20f); 
+                playerLantern.TakeDamage(20f);
                 Debug.Log("PillarSmall dealt 20 damage to the player!");
             }
         }
@@ -126,4 +132,25 @@ public class PillarSmall : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
+    
+    private void FlipTowardsPlayer()
+    {
+        if (player == null) return;
+
+        Vector3 scale = transform.localScale;
+
+        if (player.position.x < transform.position.x)
+        {
+            // Player is to the left
+            scale.x = Mathf.Abs(scale.x); // make sure it's facing left
+        }
+        else
+        {
+            // Player is to the right
+            scale.x = -Mathf.Abs(scale.x); // face right
+        }
+
+    transform.localScale = scale;
+}
+
 }
