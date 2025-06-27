@@ -63,5 +63,8 @@ TagManager:
   - name: Spikes
     uniqueID: 2196193691
     locked: 0
+  - name: Enemy
+    uniqueID: 4146666455
+    locked: 0
   m_RenderingLayers:
   - Default
