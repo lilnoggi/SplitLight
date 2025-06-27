@@ -66,9 +66,14 @@ public class PlayerMovement : MonoBehaviour
 
         // Coyote Time
         if (isGrounded)
+        {
             coyoteCounter = coyoteTime;
+            isJumping = false; // Reset jump flag when grounded
+        }
         else
+        {
             coyoteCounter -= Time.deltaTime;
+        }
 
         // Jump Buffer
         if (Input.GetButtonDown("Jump"))
