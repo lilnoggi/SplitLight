@@ -19,6 +19,9 @@ public class PlayerLantern : MonoBehaviour
     public float respawnDelay = 2f;
 
     public LanternHealthUI lanternUI;
+    public GameObject lanternLight;
+
+    public Tilemap hiddenTilemap;
 
     public AudioClip pickupSound;
     public AudioClip equipSound;
@@ -32,9 +35,6 @@ public class PlayerLantern : MonoBehaviour
     public AudioClip deathSound;
     public AudioClip deathLanternSound;
     public AudioClip takeDamageSound;
-
-    public Tilemap hiddenTilemap;
-    public GameObject lanternLight;
 
     private void Awake()
     {
@@ -139,6 +139,9 @@ public class PlayerLantern : MonoBehaviour
     {
         if (isDead) return;
         isDead = true;
+
+        if (lanternLight != null)
+    lanternLight.SetActive(false);
 
         Debug.Log("You Died");
 
