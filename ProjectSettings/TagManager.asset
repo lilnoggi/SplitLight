@@ -60,5 +60,8 @@ TagManager:
   - name: Lantern Obj
     uniqueID: 3761190459
     locked: 0
+  - name: Spikes
+    uniqueID: 2196193691
+    locked: 0
   m_RenderingLayers:
   - Default
