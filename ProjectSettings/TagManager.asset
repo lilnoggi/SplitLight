@@ -16,7 +16,7 @@ TagManager:
   - Ground
   - Ledge
   - Spike
-  - 
+  - Background
   - 
   - 
   - 
@@ -53,6 +53,12 @@ TagManager:
     locked: 0
   - name: Hidden
     uniqueID: 805078257
+    locked: 0
+  - name: Background Objects
+    uniqueID: 3606497669
+    locked: 0
+  - name: Lantern Obj
+    uniqueID: 3761190459
     locked: 0
   m_RenderingLayers:
   - Default
