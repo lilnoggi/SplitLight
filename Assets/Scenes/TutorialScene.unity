@@ -6095,6 +6095,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6057790024710833408, guid: e0b394ac7e4838d4bbba5597bcb1ff10, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970876353249164622, guid: e0b394ac7e4838d4bbba5597bcb1ff10, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6970876353249164622, guid: e0b394ac7e4838d4bbba5597bcb1ff10, type: 3}
       propertyPath: m_Intensity
       value: 9.02

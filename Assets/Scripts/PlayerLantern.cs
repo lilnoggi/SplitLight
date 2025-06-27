@@ -34,6 +34,7 @@ public class PlayerLantern : MonoBehaviour
     public AudioClip takeDamageSound;
 
     public Tilemap hiddenTilemap;
+    public GameObject lanternLight;
 
     private void Awake()
     {
@@ -124,7 +125,7 @@ public class PlayerLantern : MonoBehaviour
 
         if (lanternUI != null)
             lanternUI.UpdateHealth(currentHealth, maxHealth);
-        
+
         if (takeDamageSound != null)
             PlaySound(takeDamageSound);
 
@@ -162,28 +163,40 @@ public class PlayerLantern : MonoBehaviour
     }
 
     private System.Collections.IEnumerator RespawnCoroutine()
+    {
+        yield return new WaitForSeconds(respawnDelay);
+
+        // Reset player position
+        if (respawnPoint != null)
+            transform.position = respawnPoint.position;
+
+        // Reset health
+        currentHealth = maxHealth;
+        if (lanternUI != null)
+            lanternUI.UpdateHealth(currentHealth, maxHealth);
+
+        // Re-enable movement
+        GetComponent<PlayerMovement>().enabled = true;
+
+        // Reset death state
+        isDead = false;
+
+        // Optionally play idle animation
+        animator.SetTrigger("Respawn"); // make a "Respawn" trigger in your animator that transitions to Idle
+
+        Debug.Log("Player respawned");
+    }
+
+public void EnableLanternLight()
 {
-    yield return new WaitForSeconds(respawnDelay);
+    if (lanternLight != null)
+        lanternLight.SetActive(true);
+}
 
-    // Reset player position
-    if (respawnPoint != null)
-        transform.position = respawnPoint.position;
-
-    // Reset health
-    currentHealth = maxHealth;
-    if (lanternUI != null)
-        lanternUI.UpdateHealth(currentHealth, maxHealth);
-
-    // Re-enable movement
-    GetComponent<PlayerMovement>().enabled = true;
-
-    // Reset death state
-    isDead = false;
-
-    // Optionally play idle animation
-    animator.SetTrigger("Respawn"); // make a "Respawn" trigger in your animator that transitions to Idle
-
-    Debug.Log("Player respawned");
+public void DisableLanternLight()
+{
+    if (lanternLight != null)
+        lanternLight.SetActive(false);
 }
 
 }
