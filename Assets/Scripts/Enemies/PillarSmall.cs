@@ -10,7 +10,6 @@ public class PillarSmall : MonoBehaviour
     public float attackRange = 1.5f;
 
     private Animator animator;
-    private bool isAwake = false;
     private bool isAttacking = false;
     private float attackTimer = 0f;
 
@@ -96,6 +95,7 @@ public class PillarSmall : MonoBehaviour
         {
             isAttacking = true;
             animator.Play("Pillar_Small_Attack");
+            animator.SetTrigger("Attack");
             attackTimer = attackCooldown;
         }
     }
