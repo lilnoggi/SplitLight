@@ -11009,6 +11009,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5378416621788103093, guid: 6f0d8e33947f84b43870e8245d6512b1, type: 3}
+      propertyPath: playerPortrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 60c65ac0c3e10b842832f8265449d15a, type: 3}
+    - target: {fileID: 5378416621788103093, guid: 6f0d8e33947f84b43870e8245d6512b1, type: 3}
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 608027070}
