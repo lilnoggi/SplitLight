@@ -16,6 +16,10 @@ public class PillarSmall : MonoBehaviour
     private enum State { Asleep, Awakening, Awake, Sleeping }
     private State currentState = State.Asleep;
 
+    [Header("Sound Effects")]
+    public AudioClip awakenSound;
+    public AudioClip attackSound;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -76,6 +80,7 @@ public class PillarSmall : MonoBehaviour
     {
         animator.Play("Pillar_Small_Idle_Awake");
         currentState = State.Awake;
+        PlaySound(awakenSound);
     }
 
     public void OnSleepFinished()
@@ -96,6 +101,7 @@ public class PillarSmall : MonoBehaviour
             isAttacking = true;
             animator.Play("Pillar_Small_Attack");
             animator.SetTrigger("Attack");
+            PlaySound(attackSound);
             attackTimer = attackCooldown;
         }
     }
@@ -132,7 +138,7 @@ public class PillarSmall : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
-    
+
     private void FlipTowardsPlayer()
     {
         if (player == null) return;
@@ -150,7 +156,18 @@ public class PillarSmall : MonoBehaviour
             scale.x = -Mathf.Abs(scale.x); // face right
         }
 
-    transform.localScale = scale;
-}
+        transform.localScale = scale;
+    }
 
+    private void PlaySound(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            AudioSource audioSource = GetComponentInChildren<AudioSource>();
+            if (audioSource != null)
+            {
+                audioSource.PlayOneShot(clip);
+            }
+        }
+    }
 }
